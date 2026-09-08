@@ -10,10 +10,15 @@
     <div class="container">
         <!-- رأس الصفحة -->
         <header class="header">
-            <div class="logo-section">
-                <h1>📚 برنامج الغياب اليومي</h1>
-                <p>مدرسة جوفاء للتعليم الأساسي (5-12) بنين</p>
-                <p class="school-info">مدير المدرسة: ناصر العمري | التصميم: أ/ وليد علي صبره</p>
+            <div class="header-top">
+                <div class="logo-section">
+                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><circle cx='100' cy='100' r='95' fill='none' stroke='%23667eea' stroke-width='3'/><circle cx='100' cy='100' r='85' fill='%23667eea' opacity='0.1'/><text x='100' y='110' text-anchor='middle' font-size='60' font-weight='bold' fill='%23667eea'>جوفاء</text></svg>" alt="شعار المدرسة" class="school-logo">
+                    <div class="header-text">
+                        <h1>📚 برنامج الغياب اليومي</h1>
+                        <p>مدرسة جوفاء للتعليم الأساسي (5-12) بنين</p>
+                    </div>
+                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><circle cx='100' cy='100' r='95' fill='none' stroke='%23228B22' stroke-width='2'/><text x='100' y='80' text-anchor='middle' font-size='40' fill='%23228B22' font-weight='bold'>وزارة</text><text x='100' y='120' text-anchor='middle' font-size='35' fill='%23228B22' font-weight='bold'>التعليم</text></svg>" alt="شعار وزارة التعليم" class="ministry-logo">
+                </div>
             </div>
         </header>
 
@@ -88,6 +93,20 @@
             <button onclick="printAttendance()" class="btn btn-print">🖨️ طباعة</button>
             <button onclick="openStatistics()" class="btn btn-stats">📊 الإحصائيات</button>
         </div>
+
+        <!-- التذييل -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <p><strong>مدير المدرسة:</strong></p>
+                    <p>ناصر العمري</p>
+                </div>
+                <div class="footer-right">
+                    <p><strong>التصميم:</strong></p>
+                    <p>أ/ وليد علي صبره</p>
+                </div>
+            </div>
+        </footer>
     </div>
 
     <!-- نافذة الإحصائيات -->
