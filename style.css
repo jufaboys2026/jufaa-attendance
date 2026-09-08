@@ -25,83 +25,84 @@ body {
 
 /* رأس الصفحة */
 .header {
-    background: linear-gradient(to bottom, 
-        rgba(102, 126, 234, 0.05) 0%, 
-        rgba(118, 75, 162, 0.05) 100%);
-    border: 3px solid #667eea;
+    border: 4px solid #667eea;
     border-radius: 15px;
     padding: 25px;
     margin-bottom: 30px;
+    background: linear-gradient(to bottom, #f8f9ff 0%, #ffffff 100%);
 }
 
-.header-top {
+.header-container {
     display: flex;
     align-items: center;
-    justify-content: center;
-}
-
-.logo-section {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     gap: 20px;
-    width: 100%;
-    position: relative;
 }
 
-.school-logo-container {
+/* الشعارات */
+.ministry-logo-wrapper,
+.school-logo-wrapper {
+    flex-shrink: 0;
     display: flex;
     justify-content: center;
-    order: 3;
-    flex-shrink: 0;
 }
 
-.school-logo {
-    width: 110px;
-    height: 130px;
-    object-fit: contain;
-    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15));
-}
-
-.ministry-logo-container {
+.logo-placeholder {
+    width: 120px;
+    height: 140px;
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    order: 1;
-    flex-shrink: 0;
-}
-
-.ministry-logo {
-    width: 110px;
-    height: 110px;
-    object-fit: contain;
-    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15));
-}
-
-.header-text {
+    border-radius: 12px;
     text-align: center;
-    order: 2;
-    flex: 1;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    padding: 10px;
 }
 
-.header h1 {
+.ministry-badge {
+    background: linear-gradient(135deg, #B8336A 0%, #8B2352 100%);
+    color: white;
+    border: 2px solid #B8336A;
+}
+
+.school-badge {
+    background: linear-gradient(135deg, #164B35 0%, #0D3B26 100%);
+    color: white;
+    border: 2px solid #164B35;
+}
+
+.ministry-emblem,
+.school-emblem {
+    font-size: 36px;
+    margin-bottom: 8px;
+}
+
+.logo-placeholder p {
+    font-size: 13px;
+    margin: 2px 0;
+    line-height: 1.3;
+}
+
+/* محتوى الرأس */
+.header-content {
+    flex: 1;
+    text-align: center;
+}
+
+.header-content h1 {
     color: #333;
     font-size: 32px;
-    margin-bottom: 8px;
-    font-weight: 700;
+    margin-bottom: 12px;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    font-weight: 700;
 }
 
-.header p {
-    color: #555;
-    font-size: 18px;
-    margin: 5px 0;
-    font-weight: 500;
-}
-
-.header-border {
+.header-divider {
     height: 3px;
     background: linear-gradient(to right, 
         transparent 0%, 
@@ -111,6 +112,12 @@ body {
         transparent 100%);
     margin: 12px 0;
     border-radius: 2px;
+}
+
+.header-content p {
+    color: #555;
+    font-size: 16px;
+    font-weight: 500;
 }
 
 /* التحكم */
@@ -330,10 +337,10 @@ table .student-name {
 
 /* التذييل */
 .footer {
-    border-top: 2px solid #667eea;
+    border-top: 3px solid #667eea;
     padding-top: 20px;
     margin-top: auto;
-    background: #f9f9f9;
+    background: linear-gradient(to bottom, #f9f9f9 0%, #ffffff 100%);
     padding: 20px;
     border-radius: 10px;
 }
@@ -482,18 +489,22 @@ table .student-name {
         padding: 15px;
     }
 
-    .header h1 {
+    .header-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .header-content h1 {
         font-size: 22px;
     }
 
-    .header p {
+    .header-content p {
         font-size: 14px;
     }
 
-    .school-logo,
-    .ministry-logo {
-        width: 80px;
-        height: 80px;
+    .logo-placeholder {
+        width: 100px;
+        height: 120px;
     }
     
     .controls {
