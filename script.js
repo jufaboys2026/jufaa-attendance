@@ -109,6 +109,10 @@ function openStatistics() {
     const modal = document.getElementById('statisticsModal');
     const statisticsContent = document.getElementById('statisticsContent');
 
+    let totalStudents = 0;
+    let totalPresent = 0;
+    let totalAbsent = 0;
+    let totalLate = 0;
     let html = '<div class="statistics-grid">';
 
     // إحصائيات كل صف
@@ -132,6 +136,11 @@ function openStatistics() {
             }
         });
 
+        totalStudents += students.length;
+        totalPresent += presentCount;
+        totalAbsent += absentCount;
+        totalLate += lateCount;
+
         const total = presentCount + absentCount + lateCount;
         const attendancePercentage = total > 0 ? ((presentCount / total) * 100).toFixed(1) : 0;
 
@@ -148,7 +157,47 @@ function openStatistics() {
     }
 
     html += '</div>';
-    statisticsContent.innerHTML = html;
+
+    // إضافة الإحصائية العامة للمدرسة
+    const totalRecorded = totalPresent + totalAbsent + totalLate;
+    const overallPercentage = totalRecorded > 0 ? ((totalPresent / totalRecorded) * 100).toFixed(1) : 0;
+
+    let generalStatsHtml = `
+        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 25px; border-radius: 10px; margin-bottom: 30px; text-align: center;">
+            <h2 style="margin-bottom: 20px; font-size: 24px;">📊 الإحصائية العامة للمدرسة</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 8px;">
+                    <p style="font-size: 14px; opacity: 0.9;">📚 إجمالي الطلاب</p>
+                    <p style="font-size: 28px; font-weight: bold;">${totalStudents}</p>
+                </div>
+                <div style="background: rgba(76, 175, 80, 0.3); padding: 15px; border-radius: 8px;">
+                    <p style="font-size: 14px; opacity: 0.9;">✅ الحاضرين</p>
+                    <p style="font-size: 28px; font-weight: bold;">${totalPresent}</p>
+                </div>
+                <div style="background: rgba(244, 67, 54, 0.3); padding: 15px; border-radius: 8px;">
+                    <p style="font-size: 14px; opacity: 0.9;">❌ الغائبين</p>
+                    <p style="font-size: 28px; font-weight: bold;">${totalAbsent}</p>
+                </div>
+                <div style="background: rgba(255, 152, 0, 0.3); padding: 15px; border-radius: 8px;">
+                    <p style="font-size: 14px; opacity: 0.9;">⏰ المتأخرين</p>
+                    <p style="font-size: 28px; font-weight: bold;">${totalLate}</p>
+                </div>
+                <div style="background: rgba(255, 255, 255, 0.2); padding: 15px; border-radius: 8px;">
+                    <p style="font-size: 14px; opacity: 0.9;">📈 عدد السجلات</p>
+                    <p style="font-size: 28px; font-weight: bold;">${totalRecorded}</p>
+                </div>
+                <div style="background: rgba(255, 255, 255, 0.2); padding: 15px; border-radius: 8px;">
+                    <p style="font-size: 14px; opacity: 0.9;">📊 نسبة الحضور العامة</p>
+                    <p style="font-size: 28px; font-weight: bold;">${overallPercentage}%</p>
+                </div>
+            </div>
+        </div>
+    `;
+
+    statisticsContent.innerHTML = generalStatsHtml + `
+        <h3 style="margin: 30px 0 20px 0; text-align: center;">📋 تفاصيل الصفوف</h3>
+    ` + html;
+    
     modal.style.display = 'block';
 }
 
