@@ -18,31 +18,99 @@ body {
     border-radius: 15px;
     box-shadow: 0 10px 40px rgba(0,0,0,0.3);
     padding: 30px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 /* رأس الصفحة */
 .header {
-    text-align: center;
-    border-bottom: 3px solid #667eea;
-    padding-bottom: 20px;
+    background: linear-gradient(to bottom, 
+        rgba(102, 126, 234, 0.05) 0%, 
+        rgba(118, 75, 162, 0.05) 100%);
+    border: 3px solid #667eea;
+    border-radius: 15px;
+    padding: 25px;
     margin-bottom: 30px;
+}
+
+.header-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    position: relative;
+}
+
+.school-logo-container {
+    display: flex;
+    justify-content: center;
+    order: 3;
+    flex-shrink: 0;
+}
+
+.school-logo {
+    width: 110px;
+    height: 130px;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15));
+}
+
+.ministry-logo-container {
+    display: flex;
+    justify-content: center;
+    order: 1;
+    flex-shrink: 0;
+}
+
+.ministry-logo {
+    width: 110px;
+    height: 110px;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15));
+}
+
+.header-text {
+    text-align: center;
+    order: 2;
+    flex: 1;
 }
 
 .header h1 {
     color: #333;
-    font-size: 28px;
-    margin-bottom: 10px;
+    font-size: 32px;
+    margin-bottom: 8px;
+    font-weight: 700;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .header p {
-    color: #666;
-    font-size: 16px;
+    color: #555;
+    font-size: 18px;
     margin: 5px 0;
+    font-weight: 500;
 }
 
-.school-info {
-    color: #999;
-    font-size: 13px;
+.header-border {
+    height: 3px;
+    background: linear-gradient(to right, 
+        transparent 0%, 
+        #667eea 20%, 
+        #764ba2 50%, 
+        #667eea 80%, 
+        transparent 100%);
+    margin: 12px 0;
+    border-radius: 2px;
 }
 
 /* التحكم */
@@ -89,6 +157,7 @@ body {
 .students-section {
     margin-bottom: 30px;
     overflow-x: auto;
+    flex: 1;
 }
 
 .message {
@@ -156,6 +225,7 @@ table .student-name {
     transition: transform 0.2s, box-shadow 0.2s;
     background: #f0f0f0;
     border: 2px solid #ddd;
+    display: inline-block;
 }
 
 .status-btn:hover {
@@ -192,6 +262,7 @@ table .student-name {
     flex-wrap: wrap;
     justify-content: center;
     margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 .btn {
@@ -255,6 +326,48 @@ table .student-name {
 .btn-close:hover {
     box-shadow: 0 5px 15px rgba(244, 67, 54, 0.4);
     transform: translateY(-2px);
+}
+
+/* التذييل */
+.footer {
+    border-top: 2px solid #667eea;
+    padding-top: 20px;
+    margin-top: auto;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.footer-left {
+    text-align: left;
+    flex: 1;
+}
+
+.footer-right {
+    text-align: right;
+    flex: 1;
+}
+
+.footer-left p,
+.footer-right p {
+    color: #333;
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+.footer-left p:first-child,
+.footer-right p:first-child {
+    font-weight: 700;
+    color: #667eea;
+    margin-bottom: 8px;
 }
 
 /* Modal */
@@ -345,7 +458,7 @@ table .student-name {
         background: white;
     }
     
-    .controls, .action-buttons, .modal {
+    .controls, .action-buttons, .modal, .footer {
         display: none !important;
     }
     
@@ -365,8 +478,22 @@ table .student-name {
         padding: 15px;
     }
     
+    .header {
+        padding: 15px;
+    }
+
     .header h1 {
         font-size: 22px;
+    }
+
+    .header p {
+        font-size: 14px;
+    }
+
+    .school-logo,
+    .ministry-logo {
+        width: 80px;
+        height: 80px;
     }
     
     .controls {
@@ -399,5 +526,16 @@ table .student-name {
     .modal-content {
         margin: 20% auto;
         padding: 20px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .footer-left,
+    .footer-right {
+        width: 100%;
+        text-align: center;
     }
 }
